@@ -1,0 +1,25 @@
+#define WIFI_SSID "Your WIFI SSID"
+#define WIFI_PASSWORD "Your WIFI Password"
+#define DISPLAY_LENGTH 4
+#define DISPLAY_HEIGHT 1
+
+#define DEVICE_ID 1						// Get Divice ID from dispy.in
+#define DEVICE_HOSTNAME "SNB102-ID1"	// Any Appropriate Name
+#define DEVICE_OTA_PASSWORD "123456"	// Set OTA Password for on the air programming
+
+// NTP
+#define NTP_SERVER "asia.pool.ntp.org"	// NTP server closest to your location
+#define NTP_ADJUSTMENT_FACTOR 19800		// Timestamp adjustment
+
+
+#define LED_INTENSITY 5       // Use a value between 0 and 15 for brightness
+#define LED_SCROLL_DELAY 75   // Value between 1 to 500 (ms)
+#define LED_SPACER 1          // >= 1
+
+
+/**************************************************************
+ * NOTE: OTA Update should be initialized when the clock is 
+ *       being seen on the board. dont run when messages are 
+ *       bieng displayed.
+ * 
+ */
