@@ -36,7 +36,6 @@ int spacer = LED_SPACER;
 int width  = 5 + spacer; // The font width is 5 pixels
 String SITE_WIDTH =  "1000";
 
-int device_id = DEVICE_ID;
 
 int wd_count = 0;
 int sync_count = 0;
@@ -55,10 +54,11 @@ void setup() {
 
   
   matrix.setIntensity(LED_INTENSITY);    // Use a value between 0 and 15 for brightness
-  matrix.setRotation(0, 1);  // The first display is position upside down
-  matrix.setRotation(1, 1);  // The first display is position upside down
-  matrix.setRotation(2, 1);  // The first display is position upside down
-  matrix.setRotation(3, 1);  // The first display is position upside down
+  for(int ix=0;ix<numberOfHorizontalDisplays;ix++){
+    for(int iy=1;iy<=numberOfVerticalDisplays;iy++){
+        matrix.setRotation(ix, iy);  // The first display is position upside down
+    }
+  }
 
   matrix.fillScreen(LOW);
   matrix.write();
@@ -150,7 +150,7 @@ void get_message(){
  
       HTTPClient http;  //Declare an object of class HTTPClient
        
-      http.begin("http://dispy.in/api/notices/"+String(device_id));  //Specify request destination
+      http.begin("http://dispy.in/api/"+String(DEVICE_ID));  //Specify request destination
       int httpCode = http.GET();                                                                  //Send the request
        
       if (httpCode > 0) { //Check the returning code

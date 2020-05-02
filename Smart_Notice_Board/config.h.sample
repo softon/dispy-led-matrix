@@ -3,7 +3,7 @@
 #define DISPLAY_LENGTH 4
 #define DISPLAY_HEIGHT 1
 
-#define DEVICE_ID 1						// Get Divice ID from dispy.in
+#define DEVICE_ID "dt5gtc7"				// Get Divice ID from dispy.in
 #define DEVICE_HOSTNAME "SNB102-ID1"	// Any Appropriate Name
 #define DEVICE_OTA_PASSWORD "123456"	// Set OTA Password for on the air programming
 
