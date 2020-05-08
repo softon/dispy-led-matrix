@@ -41,13 +41,14 @@ int wd_count = 0;
 int sync_count = 0;
 
 void setup() {
+  delay(2000);
   Serial.begin(115200); // initialize serial communications
   
   WiFi.begin(ssid,password);
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
     Serial.println("Connection Failed! Rebooting...");
-    delay(5000);
-    ESP.restart();
+    //delay(5000);
+    //ESP.restart();
   }
   configTime(NTP_ADJUSTMENT_FACTOR, 0, NTP_SERVER, "time.nist.gov");
   //setenv("TZ", "GMT+05:30",1);
@@ -109,6 +110,7 @@ void setup() {
     }
   });
   ArduinoOTA.begin();
+  ArduinoOTA.handle();
   Serial.println("Ready");
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
@@ -119,7 +121,7 @@ void setup() {
 }
 
 void loop() {
-  ArduinoOTA.handle();
+  
   time_t now = time(nullptr);
   String time = String(ctime(&now));
   time.trim();
